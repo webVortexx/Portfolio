@@ -53,11 +53,11 @@ const Index = () => {
       <header className="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
         <nav className="container mx-auto flex items-center justify-between h-14">
           <a href="#home" className="font-display text-lg">RP</a>
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            <a className="hover-scale story-link" href="#experience">Experience</a>
-            <a className="hover-scale story-link" href="#projects">Projects</a>
-            <a className="hover-scale story-link" href="#skills">Skills</a>
-            <a className="hover-scale story-link" href="#contact">Contact</a>
+          <div className="hidden md:flex items-center gap-2 text-sm">
+            <a className="nav-link" href="#experience">Experience</a>
+            <a className="nav-link" href="#projects">Projects</a>
+            <a className="nav-link" href="#skills">Skills</a>
+            <a className="nav-link" href="#contact">Contact</a>
           </div>
           <div className="flex items-center gap-2">
             <a href="mailto:janpra.prajapat13000@gmail.com" aria-label="Email Rahul"><Button variant="outline"><Mail className="mr-2"/>Email</Button></a>
@@ -93,15 +93,13 @@ const Index = () => {
                 <MapPin className="h-4 w-4"/> <span>India</span>
               </div>
             </div>
-            <div className="rounded-xl p-1 bg-hero-gradient card-elevated">
-              <div className="rounded-[calc(var(--radius)+0.25rem)] bg-card p-6 h-full">
-                <p className="text-sm text-muted-foreground">Education</p>
-                <h3 className="text-xl font-semibold mt-2">IIT (ISM) Dhanbad — B.Tech in Computer Science</h3>
-                <p className="text-sm text-muted-foreground mt-2">CGPA: 7.1 • 2020 – 2024</p>
-                <ul className="mt-4 space-y-2 text-sm list-disc pl-5">
-                  <li>Relevant coursework: Data Structures, Algorithms, OS, DBMS, CN, Cloud Computing.</li>
-                </ul>
-              </div>
+            <div className="glass-panel rounded-xl p-6 card-hover">
+              <p className="text-sm text-muted-foreground">Education</p>
+              <h3 className="text-xl font-semibold mt-2">IIT (ISM) Dhanbad — B.Tech in Computer Science</h3>
+              <p className="text-sm text-muted-foreground mt-2">CGPA: 7.1 • 2020 – 2024</p>
+              <ul className="mt-4 space-y-2 text-sm list-disc pl-5">
+                <li>Relevant coursework: Data Structures, Algorithms, OS, DBMS, CN, Cloud Computing.</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -129,7 +127,7 @@ const Index = () => {
         {/* Projects */}
         <section id="projects" className="py-12">
           <h2 className="section-title text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><ExternalLink/> Projects</h2>
-          <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <div className="mt-6 grid grid-auto-fit gap-6">
             {projects.map((p) => (
               <Card key={p.title} className="card-elevated card-hover">
                 <CardHeader>
@@ -162,7 +160,7 @@ const Index = () => {
         {/* Achievements */}
         <section className="py-12">
           <h2 className="section-title text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><Trophy/> Achievements</h2>
-          <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <div className="mt-6 grid grid-auto-fit gap-6">
             <Card className="card-elevated card-hover">
               <CardContent className="pt-6 space-y-2 text-sm">
                 <p>Finalist at IIT (ISM) Dhanbad Hackfest 2022 for innovative coding solution.</p>
@@ -173,17 +171,14 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact */}
         <section id="contact" className="py-16 md:py-20">
-          <div className="rounded-xl p-1 bg-hero-gradient card-elevated">
-            <div className="rounded-[calc(var(--radius)+0.25rem)] bg-card p-8 text-center">
-              <h2 className="text-2xl md:text-3xl font-display font-semibold">Let's build something great</h2>
-              <p className="mt-2 text-muted-foreground">Open to Software Engineer roles and impactful collaborations.</p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <a href="mailto:janpra.prajapat13000@gmail.com"><Button variant="hero"><Mail className="mr-2"/>Email Me</Button></a>
-                <a href="https://github.com/rahulprajapati01" target="_blank" rel="noreferrer"><Button variant="outline"><Github className="mr-2"/>GitHub</Button></a>
-                <a href="https://linkedin.com/in/Rahul" target="_blank" rel="noreferrer"><Button variant="outline"><Linkedin className="mr-2"/>LinkedIn</Button></a>
-              </div>
+          <div className="glass-panel rounded-xl p-8 text-center card-hover">
+            <h2 className="text-2xl md:text-3xl font-display font-semibold">Let's build something great</h2>
+            <p className="mt-2 text-muted-foreground">Open to Software Engineer roles and impactful collaborations.</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a href="mailto:janpra.prajapat13000@gmail.com"><Button variant="hero"><Mail className="mr-2"/>Email Me</Button></a>
+              <a href="https://github.com/rahulprajapati01" target="_blank" rel="noreferrer"><Button variant="outline"><Github className="mr-2"/>GitHub</Button></a>
+              <a href="https://linkedin.com/in/Rahul" target="_blank" rel="noreferrer"><Button variant="outline"><Linkedin className="mr-2"/>LinkedIn</Button></a>
             </div>
           </div>
         </section>
