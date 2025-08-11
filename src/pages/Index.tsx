@@ -67,45 +67,51 @@ const Index = () => {
 
       <main id="home" className="container mx-auto">
         {/* Hero */}
-        <section className="py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-display font-bold leading-tight animate-enter">
-              <span className="text-gradient">Rahul Prajapati</span>
-            </h1>
-            <p className="mt-3 text-muted-foreground text-lg">Software Developer • Full‑stack • ReactJS • Oracle/Prometheus/Grafana</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href="/lovable-uploads/b141a2d7-9bb0-4aa5-b5f8-47012354e379.png" download>
-                <Button variant="hero"><Download className="mr-2"/>Download Resume</Button>
-              </a>
-              <a href="https://github.com/rahulprajapati01" target="_blank" rel="noreferrer">
-                <Button variant="outline"><Github className="mr-2"/>GitHub</Button>
-              </a>
-              <a href="https://linkedin.com/in/Rahul" target="_blank" rel="noreferrer">
-                <Button variant="outline"><Linkedin className="mr-2"/>LinkedIn</Button>
-              </a>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4"/> <span>India</span>
-            </div>
+        <section className="relative py-16 md:py-24">
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <div className="orb w-[38rem] h-[38rem] -top-24 -left-20"></div>
+            <div className="orb orb-2 w-[32rem] h-[32rem] -bottom-24 -right-10"></div>
           </div>
-          <div className="rounded-xl p-1 bg-hero-gradient card-elevated">
-            <div className="rounded-[calc(var(--radius)+0.25rem)] bg-card p-6 h-full">
-              <p className="text-sm text-muted-foreground">Education</p>
-              <h3 className="text-xl font-semibold mt-2">IIT (ISM) Dhanbad — B.Tech in Computer Science</h3>
-              <p className="text-sm text-muted-foreground mt-2">CGPA: 7.1 • 2020 – 2024</p>
-              <ul className="mt-4 space-y-2 text-sm list-disc pl-5">
-                <li>Relevant coursework: Data Structures, Algorithms, OS, DBMS, CN, Cloud Computing.</li>
-              </ul>
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-display font-bold leading-tight animate-enter">
+                <span className="text-gradient">Rahul Prajapati</span>
+              </h1>
+              <p className="mt-3 text-muted-foreground text-lg">Software Developer • Full‑stack • ReactJS • Oracle/Prometheus/Grafana</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="/lovable-uploads/b141a2d7-9bb0-4aa5-b5f8-47012354e379.png" download>
+                  <Button variant="hero"><Download className="mr-2"/>Download Resume</Button>
+                </a>
+                <a href="https://github.com/rahulprajapati01" target="_blank" rel="noreferrer">
+                  <Button variant="outline"><Github className="mr-2"/>GitHub</Button>
+                </a>
+                <a href="https://linkedin.com/in/Rahul" target="_blank" rel="noreferrer">
+                  <Button variant="outline"><Linkedin className="mr-2"/>LinkedIn</Button>
+                </a>
+              </div>
+              <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4"/> <span>India</span>
+              </div>
+            </div>
+            <div className="rounded-xl p-1 bg-hero-gradient card-elevated">
+              <div className="rounded-[calc(var(--radius)+0.25rem)] bg-card p-6 h-full">
+                <p className="text-sm text-muted-foreground">Education</p>
+                <h3 className="text-xl font-semibold mt-2">IIT (ISM) Dhanbad — B.Tech in Computer Science</h3>
+                <p className="text-sm text-muted-foreground mt-2">CGPA: 7.1 • 2020 – 2024</p>
+                <ul className="mt-4 space-y-2 text-sm list-disc pl-5">
+                  <li>Relevant coursework: Data Structures, Algorithms, OS, DBMS, CN, Cloud Computing.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Experience */}
         <section id="experience" className="py-12">
-          <h2 className="text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><Briefcase/> Experience</h2>
+          <h2 className="section-title text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><Briefcase/> Experience</h2>
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             {experiences.map((exp) => (
-              <Card key={exp.company} className="card-elevated">
+              <Card key={exp.company} className="card-elevated card-hover">
                 <CardHeader>
                   <CardTitle className="text-xl">{exp.role}</CardTitle>
                   <CardDescription>{exp.company} • {exp.period} • {exp.location}</CardDescription>
@@ -122,10 +128,10 @@ const Index = () => {
 
         {/* Projects */}
         <section id="projects" className="py-12">
-          <h2 className="text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><ExternalLink/> Projects</h2>
+          <h2 className="section-title text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><ExternalLink/> Projects</h2>
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             {projects.map((p) => (
-              <Card key={p.title} className="card-elevated">
+              <Card key={p.title} className="card-elevated card-hover">
                 <CardHeader>
                   <CardTitle className="text-xl">{p.title}</CardTitle>
                   <CardDescription>{p.desc}</CardDescription>
@@ -133,6 +139,11 @@ const Index = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {p.tags.map((t) => (<Badge key={t} variant="secondary">{t}</Badge>))}
+                  </div>
+                  <div className="mt-4">
+                    <a href={p.link} target="_blank" rel="noreferrer">
+                      <Button size="sm" variant="outline"><ExternalLink className="mr-2"/>Visit</Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -142,7 +153,7 @@ const Index = () => {
 
         {/* Skills */}
         <section id="skills" className="py-12">
-          <h2 className="text-2xl md:text-3xl font-display font-semibold">Technical Skills</h2>
+          <h2 className="section-title text-2xl md:text-3xl font-display font-semibold">Technical Skills</h2>
           <div className="mt-6 flex flex-wrap gap-2">
             {skills.map((s) => (<Badge key={s} variant="outline">{s}</Badge>))}
           </div>
@@ -150,9 +161,9 @@ const Index = () => {
 
         {/* Achievements */}
         <section className="py-12">
-          <h2 className="text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><Trophy/> Achievements</h2>
+          <h2 className="section-title text-2xl md:text-3xl font-display font-semibold flex items-center gap-2"><Trophy/> Achievements</h2>
           <div className="mt-6 grid md:grid-cols-2 gap-6">
-            <Card className="card-elevated">
+            <Card className="card-elevated card-hover">
               <CardContent className="pt-6 space-y-2 text-sm">
                 <p>Finalist at IIT (ISM) Dhanbad Hackfest 2022 for innovative coding solution.</p>
                 <p>Winner, KIMO's Edge 2023 Tech Competition — 1st place out of 200+ participants.</p>

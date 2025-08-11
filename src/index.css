@@ -127,6 +127,26 @@ All colors MUST be HSL.
   .btn-hero:hover { filter: brightness(1.05) saturate(1.05); }
 
   .card-elevated { box-shadow: var(--shadow-elegant); }
+  .card-hover { transition: var(--transition-smooth); }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-elegant); }
+
+  .glass-panel {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: saturate(1.2) blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .section-title {
+    position: relative;
+    font-family: var(--font-display, inherit);
+  }
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -8px; height: 3px; width: 56px;
+    background: var(--gradient-hero);
+    border-radius: 9999px;
+  }
 }
 
 @layer utilities {
@@ -151,4 +171,15 @@ All colors MUST be HSL.
     transition: transform .3s ease;
   }
   .story-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .orb {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 9999px;
+    filter: blur(30px);
+    background: radial-gradient(ellipse at center, hsl(var(--brand) / 0.25), transparent 60%);
+  }
+  .orb-2 { background: radial-gradient(ellipse at center, hsl(var(--brand-2) / 0.25), transparent 60%); }
+
+  .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 }
